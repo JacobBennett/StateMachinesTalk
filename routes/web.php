@@ -27,10 +27,31 @@ Route::get('machine/{event}', function ($event) {
 });
 
 Route::get('small/{event}', function ($event) {
+    // Typically when we start an application
+    // we start by thinking about the entities or models
+    // and then we think about all the different
+    // actions that our actors will use to interact
+    // with that entity
+    // EVENT STORMING
+
+        // INTRODUCE LATER: What we want to do is go one more step past events
+        // and think about what STATES will be represented in our model
+
+    // In this case that is finalize, send and pay
+
+    // When we model implicitly we think about a state in terms of a combination of different pieces of information
+    // not as a single value. It is an aggregate of pieces of info, not a single value
+
+    // A state machine takes away that need to constantly check that we are in a consistent state
+    // by enforcing the path through our application and giving us the confidence that we
+    // can rely on a single value to represent the QUANTITATIVE state of our Model
+    // We can also place in QUALITATIVE STATE
+
 
     // In this approach, we are using the controllers
     // to define the events that can be triggered
     // on our model.
+
     // The issue is that there is not enforcement
     // for when these events can be triggered.
     // We end up determining the state implicitly
@@ -56,12 +77,15 @@ Route::get('small/{event}', function ($event) {
     // so we end up making these `isOpen` method on the
     // Model to use as a way to query for these
     // but we still have to hydrate the entire model
-    // so that we can query for these things
+    // so that we can query for these things, have to run the checks after the query
 
     $invoice = Invoice::create();
 
     // Initial State
 //    $invoice->update(['status' => 'draft']);
+
+    // InvoiceController
+        // create, store, edit, update, delete
 
     // In the FinalizeInvoiceController
     // Open
