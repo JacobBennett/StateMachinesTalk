@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use App\Enums\InvoiceState;
-use App\StateMachines\InvoiceStateContract;
-use App\StateMachines\OpenInvoiceState;
-use App\StateMachines\PaidInvoiceState;
-use App\StateMachines\VoidInvoiceState;
-use App\StateMachines\DraftInvoiceState;
 use http\Exception\InvalidArgumentException;
-use App\StateMachines\UncollectableInvoiceState;
-use Illuminate\Database\Eloquent\Model;
+use App\StateMachines\Invoice\PaidInvoiceState;
+use App\StateMachines\Invoice\VoidInvoiceState;
+use App\StateMachines\Invoice\OpenInvoiceState;
+use App\StateMachines\Invoice\DraftInvoiceState;
+use App\StateMachines\Invoice\InvoiceStateContract;
+use App\StateMachines\Invoice\UncollectableInvoiceState;
 
 class Invoice extends BaseModel
 {
@@ -18,17 +17,19 @@ class Invoice extends BaseModel
         'status' => InvoiceState::Draft,
     ];
 
-    public function status(): InvoiceStateContract
+    protected $casts = [
+        'status' => InvoiceState::class,
+    ];
+
+    public function state(): InvoiceStateContract
     {
-        $stateClass = match ($this->status) {
-            InvoiceState::Draft => DraftInvoiceState::class,
-            InvoiceState::Open => OpenInvoiceState::class,
-            InvoiceState::Paid => PaidInvoiceState::class,
-            InvoiceState::Void => VoidInvoiceState::class,
-            InvoiceState::Uncollectable => UncollectableInvoiceState::class,
+        return match ($this->status) {
+            InvoiceState::Draft => new DraftInvoiceState($this),
+            InvoiceState::Open => new OpenInvoiceState($this),
+            InvoiceState::Paid => new PaidInvoiceState($this),
+            InvoiceState::Void => new VoidInvoiceState($this),
+            InvoiceState::Uncollectable => new UncollectableInvoiceState($this),
             default => throw new InvalidArgumentException('Invalid status'),
         };
-
-        return new $stateClass($this);
     }
 }
