@@ -1,14 +1,12 @@
-# To do the State Pattern
+# State Machines Talk - Laracon 2023
+Thanks so much for your interest in my State Machines talk.
 
-## Need
+Know that this codebase should be used as a reference only and not as a working prototype. There are a good number of places in this codebase that provide non-implemented pseudo-code examples for your reference. 
 
-1. Invoice Model
-2. InvoiceStates Enum
+Please use this only as a way to remember what the ideas discussed during the talk were.
 
-3. InvoiceStateInterface or Contract
-4. BaseInvoiceState Class
-5. InvoiceState for each state
+The main locations to pay attention to are:
 
-Show the UML diagram of what we will be building
-
-Invoice -> State
+- `app/Http/Controllers/*`
+- `app/StateMachines/Invoice/*`
+- `app/Enums/*`

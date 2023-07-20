@@ -1,4 +1,4 @@
-<?php /** @noinspection ALL */
+<?php
 
 namespace App\StateMachines\Invoice;
 
@@ -8,6 +8,7 @@ class DraftInvoiceState extends BaseInvoiceState
 {
     function finalize() {
         $this->invoice->update(['status' => InvoiceState::Open]);
-        Mail::send(new InvoiceFinalize($this->invoice));
+        /** Pseudo Code Below */
+        Mail::send(new InvoiceDue($this->invoice));
     }
 }

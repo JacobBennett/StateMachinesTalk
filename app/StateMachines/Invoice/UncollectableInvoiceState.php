@@ -8,6 +8,8 @@ class UncollectableInvoiceState extends BaseInvoiceState
 {
     function pay() {
         $this->invoice->update(['status' => InvoiceState::Paid]);
+        /* Pseudo Code Below */
+        Mail::send(new Invoice($this->invoice));
     }
 
     function void() {
