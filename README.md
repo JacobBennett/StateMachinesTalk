@@ -8,8 +8,8 @@ Please use this only as a way to remember what the ideas discussed during the ta
 
 The main locations to pay attention to are:
 
-- `app/Http/Controllers/*`
-- `app/StateMachines/Invoice/*`
-- `app/Enums/*`
+- [`app/Http/Controllers/*`](app/Http/Controllers)
+- [`app/StateMachines/Invoice/*`](app/StateMachines/Invoice)
+- [`app/Enums/*`](app/Enums)
 
 ![State Machines](readme_resources/invoice-state-diagram.svg)
