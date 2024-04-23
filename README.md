@@ -1,5 +1,8 @@
 ![State Machines](readme_resources/state-machines-talk-title.svg)
 
+[Click here for Slides](https://speakerdeck.com/jacobbennett/state-machines-in-laravel)
+[Click here for Youtube](https://www.youtube.com/watch?v=1A1xFtlDyzU&ab_channel=Laravel)
+
 Thanks so much for your interest in my State Machines talk.
 
 Know that this codebase should be used as a reference only and not as a working prototype. There are a good number of places in this codebase that provide non-implemented pseudo-code examples for your reference. 
