@@ -1,8 +1,12 @@
 ![State Machines](readme_resources/state-machines-talk-title.svg)
 
-[Click here for Slides](https://speakerdeck.com/jacobbennett/state-machines-in-laravel)
+### Links
 
-[Click here for Youtube](https://www.youtube.com/watch?v=1A1xFtlDyzU&ab_channel=Laravel)
+[See Slides on SpeakerDeck](https://speakerdeck.com/jacobbennett/state-machines-in-laravel)
+
+[Watch Talk on Youtube](https://www.youtube.com/watch?v=1A1xFtlDyzU&ab_channel=Laravel)
+
+### Resources
 
 Thanks so much for your interest in my State Machines talk.
 
